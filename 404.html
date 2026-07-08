@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | AFSHANVERSE</title>
+  <meta name="description" content="This page doesn't exist. Return to AFSHANVERSE portfolio." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&family=Inter:wght@400;500&family=Caveat:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --bg: #050816; --electric: #00d4ff; --violet: #7c3aed;
+      --neon: #a855f7; --white: #fff; --muted: #64748b;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background: var(--bg); color: var(--white);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden;
+    }
+    canvas { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+    .content { position: relative; z-index: 1; padding: 40px 20px; }
+    .err-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(8rem, 20vw, 14rem); font-weight: 900; line-height: 1;
+      background: linear-gradient(135deg, var(--electric), var(--violet), var(--neon));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 20px;
+      text-shadow: none;
+    }
+    .err-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem; font-weight: 700; margin-bottom: 12px;
+    }
+    .err-desc { color: var(--muted); font-size: 16px; margin-bottom: 36px; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .btn-home {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(135deg, var(--electric), var(--violet));
+      color: var(--bg); font-weight: 700; font-size: 16px;
+      padding: 14px 32px; border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 0 30px rgba(0,212,255,0.3);
+      transition: all 0.3s ease;
+    }
+    .btn-home:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(0,212,255,0.5); }
+    .signature { font-family: 'Caveat', cursive; font-size: 24px; color: var(--electric); margin-top: 40px; }
+    .blob {
+      position: fixed; border-radius: 50%; filter: blur(80px); opacity: 0.2; pointer-events: none;
+    }
+    .b1 { width: 400px; height: 400px; background: var(--electric); top:-100px; right:-100px; animation: float 8s ease-in-out infinite; }
+    .b2 { width: 300px; height: 300px; background: var(--violet); bottom:-100px; left:-80px; animation: float 10s ease-in-out infinite reverse; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+  </style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="content">
+    <div class="err-number">404</div>
+    <h1 class="err-title">Page Not Found</h1>
+    <p class="err-desc">Oops! The page you're looking for doesn't exist in this universe. Let's get you back to the right dimension.</p>
+    <a href="index.html" class="btn-home">
+      <i class="fas fa-home"></i>
+      Back to Home
+    </a>
+    <div class="signature">Afshan</div>
+  </div>
+</body>
+</html>

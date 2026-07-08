@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ===== META & SEO ===== -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>AFSHANVERSE — AI Engineer & Full-Stack Developer Portfolio</title>
+  <meta name="description" content="Afshan's personal portfolio — AI Engineer, Python Developer, and Full-Stack Web Developer. Computer Science & Engineering (AI & ML) student at Er. Perumal Manimekalai College of Engineering." />
+  <meta name="keywords" content="Afshan, AI Engineer, Python Developer, Web Developer, Portfolio, Machine Learning, IoT, Full Stack, AFSHANVERSE" />
+  <meta name="author" content="Afshan" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://afshanverse.dev/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://afshanverse.dev/" />
+  <meta property="og:title" content="AFSHANVERSE — AI Engineer & Full-Stack Developer" />
+  <meta property="og:description" content="World-class portfolio of Afshan — AI Engineer, Python Developer, Web Developer & Builder." />
+  <meta property="og:image" content="https://afshanverse.dev/assets/images/profile.jpg" />
+  <meta property="og:site_name" content="AFSHANVERSE" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AFSHANVERSE — AI Engineer & Full-Stack Developer" />
+  <meta name="twitter:description" content="Portfolio of Afshan — AI, Python, Web Dev & IoT." />
+  <meta name="twitter:image" content="https://afshanverse.dev/assets/images/profile.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23050816'/><text x='50%' y='58%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-weight='900' font-size='46' fill='url(%23g)'><![CDATA[AT]]></text><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2300d4ff'/><stop offset='100%25' stop-color='%237c3aed'/></linearGradient></defs></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'space': '#050816',
+            'electric': '#00d4ff',
+            'violet': '#7c3aed',
+            'neon': '#a855f7',
+            'cyber': '#06b6d4',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark" id="top">
+
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-trail-container" id="cursorTrail"></div>
+
+  <!-- ===================== LOADING SCREEN ===================== -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loader-content">
+      <div class="loader-logo">
+        <span class="loader-at">AT</span>
+      </div>
+      <div class="loader-rings">
+        <div class="loader-ring r1"></div>
+        <div class="loader-ring r2"></div>
+        <div class="loader-ring r3"></div>
+      </div>
+      <div class="loader-text">AFSHANVERSE</div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <div class="loader-percent" id="loaderPercent">0%</div>
+    </div>
+  </div>
+
+  <!-- ===================== SCROLL PROGRESS ===================== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===================== MOUSE GLOW ===================== -->
+  <div class="mouse-glow" id="mouseGlow"></div>
+
+  <!-- ===================== PARTICLE CANVAS ===================== -->
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="navbar-custom" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#home" class="nav-logo" aria-label="AFSHANVERSE Home">
+        <span class="logo-signature">Afshan</span>
+        <span class="logo-dot"></span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" id="navLinks" role="menubar">
+        <li role="none"><a href="#home"          role="menuitem" class="nav-link active">Home</a></li>
+        <li role="none"><a href="#about"         role="menuitem" class="nav-link">About</a></li>
+        <li role="none"><a href="#skills"        role="menuitem" class="nav-link">Skills</a></li>
+        <li role="none"><a href="#projects"      role="menuitem" class="nav-link">Projects</a></li>
+        <li role="none"><a href="#experience"    role="menuitem" class="nav-link">Experience</a></li>
+        <li role="none"><a href="#achievements"  role="menuitem" class="nav-link">Achievements</a></li>
+        <li role="none"><a href="#certificates"  role="menuitem" class="nav-link">Certificates</a></li>
+        <li role="none"><a href="#education"     role="menuitem" class="nav-link">Education</a></li>
+        <li role="none"><a href="#contact"       role="menuitem" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Resume CTA -->
+      <a href="assets/resume/resume.pdf" download class="btn-resume magnetic-btn" aria-label="Download Resume">
+        <i class="fas fa-download" aria-hidden="true"></i>
+        <span>Resume</span>
+      </a>
+
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <ul role="menubar">
+        <li><a href="#home"         role="menuitem" class="mob-link">Home</a></li>
+        <li><a href="#about"        role="menuitem" class="mob-link">About</a></li>
+        <li><a href="#skills"       role="menuitem" class="mob-link">Skills</a></li>
+        <li><a href="#projects"     role="menuitem" class="mob-link">Projects</a></li>
+        <li><a href="#experience"   role="menuitem" class="mob-link">Experience</a></li>
+        <li><a href="#achievements" role="menuitem" class="mob-link">Achievements</a></li>
+        <li><a href="#certificates" role="menuitem" class="mob-link">Certificates</a></li>
+        <li><a href="#education"    role="menuitem" class="mob-link">Education</a></li>
+        <li><a href="#contact"      role="menuitem" class="mob-link">Contact</a></li>
+        <li><a href="assets/resume/resume.pdf" download class="mob-link mob-resume">⬇ Download Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section id="home" class="hero-section" aria-label="Hero introduction">
+    <div class="hero-bg-blobs">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+    </div>
+
+    <div class="hero-container">
+      <!-- LEFT -->
+      <div class="hero-left" data-reveal="left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          AI Engineer &bull; Developer &bull; Programmer &bull; Builder &bull; Student
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-title-main">AFSHANVERSE</span>
+        </h1>
+
+        <p class="hero-tagline">Where Code Meets Creativity and Intelligence.</p>
+
+        <div class="hero-subheading">
+          <span class="sub-word">Design.</span>
+          <span class="sub-word">Develop.</span>
+          <span class="sub-word">Innovate.</span>
+        </div>
+
+        <div class="hero-typing-wrap">
+          <span class="typing-prefix">I am a </span>
+          <span class="typing-text" id="typingText"></span>
+          <span class="typing-cursor">|</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary magnetic-btn" id="btn-view-projects">
+            <span>View Projects</span>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <a href="assets/resume/resume.pdf" download class="btn-secondary magnetic-btn" id="btn-download-resume-hero">
+            <span>Download Resume</span>
+            <i class="fas fa-download" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <div class="hero-socials" aria-label="Social media links">
+          <a href="https://github.com/afshann984" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="GitHub profile">
+            <i class="fab fa-github" aria-hidden="true"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/afshan-n-286737321?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn profile">
+            <i class="fab fa-linkedin" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="hero-right" data-reveal="right">
+        <div class="profile-wrapper">
+          <!-- Glowing rings -->
+          <div class="profile-ring ring-1"></div>
+          <div class="profile-ring ring-2"></div>
+          <div class="profile-ring ring-3"></div>
+          <!-- Orbit dots -->
+          <div class="orbit-dot od1"></div>
+          <div class="orbit-dot od2"></div>
+          <div class="orbit-dot od3"></div>
+          <!-- Profile image -->
+          <div class="profile-img-container">
+            <img src="assets/images/profile.jpg" alt="Afshan - AI Engineer and Full Stack Developer" class="profile-img" loading="eager" width="350" height="350" />
+          </div>
+        </div>
+
+        <!-- Floating Tech Icons -->
+        <div class="floating-icons" aria-hidden="true">
+          <div class="float-icon fi-1" title="Python"><i class="fab fa-python"></i><span>Python</span></div>
+          <div class="float-icon fi-2" title="JavaScript"><i class="fab fa-js"></i><span>JavaScript</span></div>
+          <div class="float-icon fi-3" title="HTML5"><i class="fab fa-html5"></i><span>HTML5</span></div>
+          <div class="float-icon fi-4" title="CSS3"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+          <div class="float-icon fi-5" title="GitHub"><i class="fab fa-github"></i><span>GitHub</span></div>
+          <div class="float-icon fi-6" title="AI"><i class="fas fa-brain"></i><span>AI</span></div>
+          <div class="float-icon fi-7" title="IoT"><i class="fas fa-microchip"></i><span>IoT</span></div>
+          <div class="float-icon fi-8" title="Bootstrap"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
+          <div class="float-icon fi-9" title="TailwindCSS"><i class="fas fa-wind"></i><span>Tailwind</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ===================== SECTION DIVIDER ===================== -->
+  <div class="section-divider" aria-hidden="true"><div class="divider-line"></div></div>
+
+  <!-- ===================== ABOUT SECTION ===================== -->
+  <section id="about" class="section about-section" aria-labelledby="about-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">Get To Know Me</span>
+        <h2 class="section-title" id="about-heading">About <span class="gradient-text">Me</span></h2>
+        <div class="section-underline"></div>
+      </div>
+
+      <div class="about-grid">
+        <!-- Left: Image + stats -->
+        <div class="about-left" data-reveal="left">
+          <div class="about-img-wrap">
+            <img src="assets/images/about.jpg" alt="Afshan - CS Engineering student" class="about-img" loading="lazy" />
+            <div class="about-img-glow"></div>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="stat-card" data-reveal="up" data-delay="100">
+              <div class="stat-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
+              <div class="stat-number" data-count="10">0</div>
+              <div class="stat-label">Projects Built</div>
+            </div>
+            <div class="stat-card" data-reveal="up" data-delay="200">
+              <div class="stat-icon"><i class="fas fa-trophy" aria-hidden="true"></i></div>
+              <div class="stat-number" data-count="5">0</div>
+              <div class="stat-label">Competitions</div>
+            </div>
+            <div class="stat-card" data-reveal="up" data-delay="300">
+              <div class="stat-icon"><i class="fas fa-certificate" aria-hidden="true"></i></div>
+              <div class="stat-number" data-count="8">0</div>
+              <div class="stat-label">Certificates</div>
+            </div>
+            <div class="stat-card" data-reveal="up" data-delay="400">
+              <div class="stat-icon"><i class="fas fa-lightbulb" aria-hidden="true"></i></div>
+              <div class="stat-number" data-count="3">0</div>
+              <div class="stat-label">Internships</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Text -->
+        <div class="about-right" data-reveal="right">
+          <div class="about-greeting">Hello! I'm</div>
+          <h3 class="about-name">Afshan Tabasum N <span class="gradient-text">✦</span></h3>
+
+          <div class="about-text">
+            <p>I am a <strong>Computer Science &amp; Engineering (AI &amp; ML)</strong> student at <strong>Er. Perumal Manimekalai College of Engineering</strong>.</p>
+            <p>I am passionate about <strong>Artificial Intelligence, Python, Web Development, IoT,</strong> and building real-world solutions.</p>
+            <p>I enjoy learning emerging technologies, participating in hackathons, and creating innovative projects that solve real-world problems.</p>
+          </div>
+
+          <div class="about-details">
+            <div class="detail-item">
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+              <span><strong>Degree:</strong> B.E. CSE (AI &amp; ML)</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span><strong>Location:</strong> Hosur, Tamil Nadu, India</span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <span><strong>Email:</strong> <a href="mailto:afshann984@gmail.com">afshann984@gmail.com</a></span>
+            </div>
+            <div class="detail-item">
+              <i class="fas fa-circle-dot" aria-hidden="true"></i>
+              <span><strong>Status:</strong> <span class="status-badge">Open to Opportunities</span></span>
+            </div>
+          </div>
+
+          <a href="assets/resume/resume.pdf" download class="btn-primary magnetic-btn mt-4">
+            <span>Download Resume</span>
+            <i class="fas fa-download" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Currently Learning -->
+      <div class="currently-learning" data-reveal="up">
+        <h3 class="cl-title"><i class="fas fa-book-open" aria-hidden="true"></i> Currently Learning</h3>
+        <div class="cl-chips">
+          <span class="cl-chip"><i class="fas fa-brain"></i> Deep Learning</span>
+          <span class="cl-chip"><i class="fas fa-robot"></i> LLMs &amp; Prompt Engineering</span>
+          <span class="cl-chip"><i class="fas fa-cloud"></i> Cloud Computing (AWS)</span>
+          <span class="cl-chip"><i class="fas fa-flask"></i> Data Science with Python</span>
+          <span class="cl-chip"><i class="fas fa-network-wired"></i> Computer Networking</span>
+          <span class="cl-chip"><i class="fas fa-layer-group"></i> Full-Stack Development</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS SECTION ===================== -->
+  <section id="skills" class="section skills-section" aria-labelledby="skills-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">What I Know</span>
+        <h2 class="section-title" id="skills-heading">My <span class="gradient-text">Skills</span></h2>
+        <div class="section-underline"></div>
+      </div>
+
+      <!-- Programming -->
+      <div class="skills-category" data-reveal="up">
+        <div class="category-header">
+          <div class="cat-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
+          <h3>Programming</h3>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card" data-skill="90">
+            <div class="skill-icon"><i class="fab fa-python" aria-hidden="true"></i></div>
+            <div class="skill-info">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" style="--w:90%"></div></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="78">
+            <div class="skill-icon"><i class="fab fa-js" aria-hidden="true"></i></div>
+            <div class="skill-info">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" style="--w:78%"></div></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="92">
+            <div class="skill-icon"><i class="fab fa-html5" aria-hidden="true"></i></div>
+            <div class="skill-info">
+              <span class="skill-name">HTML5</span>
+              <div class="skill-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" style="--w:92%"></div></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="85">
+            <div class="skill-icon"><i class="fab fa-css3-alt" aria-hidden="true"></i></div>
+            <div class="skill-info">
+              <span class="skill-name">CSS3</span>
+              <div class="skill-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" style="--w:85%"></div></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="80">
+            <div class="skill-icon"><i class="fas fa-wind" aria-hidden="true"></i></div>
+            <div class="skill-info">
+              <span class="skill-name">TailwindCSS</span>
+              <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" style="--w:80%"></div></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="82">
+            <div class="skill-icon"><i class="fab fa-bootstrap" aria-hidden="true"></i></div>
+            <div class="skill-info">
+              <span class="skill-name">Bootstrap</span>
+              <div class="skill-bar" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" style="--w:82%"></div></div>
+            </div>
+          </div>
+          <div class="skill-card" data-skill="70">
+            <div class="skill-icon"><i class="fas fa-database" aria-hidden="true"></i></div>
+            <div class="skill-info">
+              <span class="skill-name">MySQL</span>
+              <div class="skill-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"><div class="skill-fill" style="--w:70%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Domains -->
+      <div class="skills-category" data-reveal="up">
+        <div class="category-header">
+          <div class="cat-icon"><i class="fas fa-layer-group" aria-hidden="true"></i></div>
+          <h3>Domains</h3>
+        </div>
+        <div class="domain-grid">
+          <div class="domain-card">
+            <div class="domain-icon-wrap"><i class="fas fa-brain" aria-hidden="true"></i></div>
+            <span>Artificial Intelligence</span>
+          </div>
+          <div class="domain-card">
+            <div class="domain-icon-wrap"><i class="fas fa-globe" aria-hidden="true"></i></div>
+            <span>Web Development</span>
+          </div>
+          <div class="domain-card">
+            <div class="domain-icon-wrap"><i class="fas fa-microchip" aria-hidden="true"></i></div>
+            <span>Internet of Things</span>
+          </div>
+          <div class="domain-card">
+            <div class="domain-icon-wrap"><i class="fas fa-palette" aria-hidden="true"></i></div>
+            <span>UI/UX Design</span>
+          </div>
+          <div class="domain-card">
+            <div class="domain-icon-wrap"><i class="fas fa-cloud" aria-hidden="true"></i></div>
+            <span>Cloud Basics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="skills-category" data-reveal="up">
+        <div class="category-header">
+          <div class="cat-icon"><i class="fas fa-tools" aria-hidden="true"></i></div>
+          <h3>Tools &amp; Platforms</h3>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-card"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></div>
+          <div class="tool-card"><i class="fas fa-code" aria-hidden="true"></i><span>VS Code</span></div>
+          <div class="tool-card"><i class="fas fa-snake" aria-hidden="true"></i><span>Thonny IDE</span></div>
+          <div class="tool-card"><i class="fas fa-vial" aria-hidden="true"></i><span>Wokwi</span></div>
+          <div class="tool-card"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Blynk</span></div>
+          <div class="tool-card"><i class="fas fa-chart-line" aria-hidden="true"></i><span>ThingSpeak</span></div>
+          <div class="tool-card"><i class="fab fa-figma" aria-hidden="true"></i><span>Figma</span></div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="skills-category" data-reveal="up">
+        <div class="category-header">
+          <div class="cat-icon"><i class="fas fa-star" aria-hidden="true"></i></div>
+          <h3>Soft Skills</h3>
+        </div>
+        <div class="soft-grid">
+          <div class="soft-card"><i class="fas fa-lightbulb" aria-hidden="true"></i><span>Creative Thinking</span></div>
+          <div class="soft-card"><i class="fas fa-crown" aria-hidden="true"></i><span>Leadership</span></div>
+          <div class="soft-card"><i class="fas fa-comments" aria-hidden="true"></i><span>Good Communication</span></div>
+          <div class="soft-card"><i class="fas fa-people-group" aria-hidden="true"></i><span>Teamwork</span></div>
+          <div class="soft-card"><i class="fas fa-bolt" aria-hidden="true"></i><span>Fast Learner</span></div>
+          <div class="soft-card"><i class="fas fa-hammer" aria-hidden="true"></i><span>Curious Builder</span></div>
+          <div class="soft-card"><i class="fas fa-puzzle-piece" aria-hidden="true"></i><span>Problem Solving</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS SECTION ===================== -->
+  <section id="projects" class="section projects-section" aria-labelledby="projects-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">What I've Built</span>
+        <h2 class="section-title" id="projects-heading">My <span class="gradient-text">Projects</span></h2>
+        <div class="section-underline"></div>
+      </div>
+
+      <!-- Project Stats -->
+      <div class="project-stats" data-reveal="up">
+        <div class="pstat"><span class="pstat-num" data-count="10">0</span><span class="pstat-label">Projects</span></div>
+        <div class="pstat"><span class="pstat-num" data-count="4">0</span><span class="pstat-label">Categories</span></div>
+        <div class="pstat"><span class="pstat-num" data-count="5">0</span><span class="pstat-label">Tech Stacks</span></div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div class="project-filters" role="group" aria-label="Project category filters" data-reveal="up">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-btn" data-filter="ai"  aria-pressed="false">AI</button>
+        <button class="filter-btn" data-filter="python" aria-pressed="false">Python</button>
+        <button class="filter-btn" data-filter="web" aria-pressed="false">Web</button>
+        <button class="filter-btn" data-filter="iot" aria-pressed="false">IoT</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projectsGrid">
+
+        <article class="project-card" data-category="ai python" data-reveal="up" data-delay="0">
+          <div class="project-row-header">
+            <h3 class="project-title">AI Chatbot Assistant</h3>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">An intelligent chatbot built with Python using NLP techniques to answer queries and assist users in real-time.</p>
+          <div class="project-tech">Tech Stack:<span class="tech-highlight">Python, NLP, ML</span></div>
+        </article>
+
+        <article class="project-card" data-category="web" data-reveal="up" data-delay="100">
+          <div class="project-row-header">
+            <h3 class="project-title">Personal Portfolio Website</h3>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">A stunning, interactive personal portfolio with dark futuristic design, animations, and glassmorphism UI.</p>
+          <div class="project-tech">Tech Stack:<span class="tech-highlight">HTML5, CSS3, JavaScript</span></div>
+        </article>
+
+        <article class="project-card" data-category="iot python" data-reveal="up" data-delay="200">
+          <div class="project-row-header">
+            <h3 class="project-title">Smart Home Automation</h3>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">IoT-powered smart home system with real-time monitoring via Blynk and ThingSpeak dashboard integration.</p>
+          <div class="project-tech">Tech Stack:<span class="tech-highlight">Python, IoT, Blynk, ThingSpeak</span></div>
+        </article>
+
+        <article class="project-card" data-category="python" data-reveal="up" data-delay="300">
+          <div class="project-row-header">
+            <h3 class="project-title">Data Analysis Dashboard</h3>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">Interactive data analysis and visualization dashboard built with Python and Matplotlib for real-world datasets.</p>
+          <div class="project-tech">Tech Stack:<span class="tech-highlight">Python, Pandas, Matplotlib</span></div>
+        </article>
+
+        <article class="project-card" data-category="ai web" data-reveal="up" data-delay="400">
+          <div class="project-row-header">
+            <h3 class="project-title">Image Recognition Web App</h3>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">A web application that uses machine learning to recognize and classify images uploaded by users in real time.</p>
+          <div class="project-tech">Tech Stack:<span class="tech-highlight">Python, TensorFlow, Flask, HTML</span></div>
+        </article>
+
+        <article class="project-card" data-category="iot" data-reveal="up" data-delay="500">
+          <div class="project-row-header">
+            <h3 class="project-title">Weather Station Monitor</h3>
+            <div class="project-links">
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <p class="project-desc">Real-time weather monitoring system using ESP32 with live data streaming to cloud dashboard via ThingSpeak.</p>
+          <div class="project-tech">Tech Stack:<span class="tech-highlight">ESP32, Python, ThingSpeak</span></div>
+        </article>
+
+      </div>
+
+      <!-- GitHub Contribution Graph Placeholder -->
+      <div class="github-graph" data-reveal="up">
+        <h3 class="github-graph-title"><i class="fab fa-github" aria-hidden="true"></i> GitHub Contributions</h3>
+        <div class="contrib-graph" id="contribGraph" aria-label="GitHub contribution graph placeholder"></div>
+        <div class="contrib-legend">
+          <span>Less</span>
+          <div class="legend-boxes">
+            <div class="lb lb0"></div><div class="lb lb1"></div><div class="lb lb2"></div><div class="lb lb3"></div><div class="lb lb4"></div>
+          </div>
+          <span>More</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE SECTION ===================== -->
+  <section id="experience" class="section experience-section" aria-labelledby="experience-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">My Journey</span>
+        <h2 class="section-title" id="experience-heading">Experience &amp; <span class="gradient-text">Journey</span></h2>
+        <div class="section-underline"></div>
+      </div>
+
+      <div class="timeline">
+        <!-- Item 1: Internship (latest first) -->
+        <div class="timeline-item" data-reveal="left">
+          <div class="timeline-dot">
+            <div class="tl-dot-inner"><i class="fas fa-briefcase" aria-hidden="true"></i></div>
+          </div>
+          <div class="timeline-content">
+            <div class="tl-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> July 2026</div>
+            <div class="tl-badge internship">Internship</div>
+            <h3 class="tl-title">Web Development &amp; Python Programming</h3>
+            <h4 class="tl-company"><i class="fas fa-building" aria-hidden="true"></i> GrowwPark Technologies Pvt Ltd</h4>
+            <p class="tl-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Hosur, Tamil Nadu</p>
+            <ul class="tl-list">
+              <li>Worked on real-world web development projects using modern front-end technologies.</li>
+              <li>Built Python scripts and automation tools for internal business processes.</li>
+              <li>Collaborated in a professional team environment, meeting deadlines and coding standards.</li>
+            </ul>
+            <div class="tl-skills">
+              <span>Web Development</span><span>Python Programming</span><span>HTML/CSS</span><span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2: Industrial Visit -->
+        <div class="timeline-item" data-reveal="right">
+          <div class="timeline-dot">
+            <div class="tl-dot-inner"><i class="fas fa-industry" aria-hidden="true"></i></div>
+          </div>
+          <div class="timeline-content">
+            <div class="tl-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> 2025</div>
+            <div class="tl-badge visit">Industrial Visit</div>
+            <h3 class="tl-title">Industrial Visit — C-DAC</h3>
+            <h4 class="tl-company"><i class="fas fa-building" aria-hidden="true"></i> Centre for Development of Advanced Computing (C-DAC)</h4>
+            <p class="tl-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bengaluru, Karnataka</p>
+            <p class="tl-desc">Learned how complex academic concepts in data structures, networking, and parallel processing are applied to solve real-world, national-scale problems. Gained deep exposure to how India's premier research institution tackles high-performance computing challenges.</p>
+            <div class="tl-skills">
+              <span>Data Structures</span><span>Networking</span><span>Parallel Processing</span><span>HPC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ACHIEVEMENTS SECTION ===================== -->
+  <section id="achievements" class="section achievements-section" aria-labelledby="achievements-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">Milestones</span>
+        <h2 class="section-title" id="achievements-heading">My <span class="gradient-text">Achievements</span></h2>
+        <p class="section-subtitle">Hackathons &bull; Coding Competitions &bull; Workshops &bull; Technical Events &bull; Awards</p>
+        <div class="section-underline"></div>
+      </div>
+
+      <div class="achievements-grid">
+
+        <div class="achievement-card placeholder-card" data-reveal="up" data-delay="0">
+          <div class="ach-glow ach-hackathon"></div>
+          <div class="ach-icon"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+          <div class="ach-badge">Hackathon</div>
+          <h3 class="ach-title">Hackathon Achievement</h3>
+          <p class="ach-placeholder-text">Details coming soon...</p>
+          <div class="ach-empty-line"></div>
+          <div class="ach-empty-line short"></div>
+        </div>
+
+        <div class="achievement-card placeholder-card" data-reveal="up" data-delay="100">
+          <div class="ach-glow ach-coding"></div>
+          <div class="ach-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
+          <div class="ach-badge">Coding</div>
+          <h3 class="ach-title">Coding Competition</h3>
+          <p class="ach-placeholder-text">Details coming soon...</p>
+          <div class="ach-empty-line"></div>
+          <div class="ach-empty-line short"></div>
+        </div>
+
+        <div class="achievement-card placeholder-card" data-reveal="up" data-delay="200">
+          <div class="ach-glow ach-workshop"></div>
+          <div class="ach-icon"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i></div>
+          <div class="ach-badge">Workshop</div>
+          <h3 class="ach-title">Workshop Participation</h3>
+          <p class="ach-placeholder-text">Details coming soon...</p>
+          <div class="ach-empty-line"></div>
+          <div class="ach-empty-line short"></div>
+        </div>
+
+        <div class="achievement-card placeholder-card" data-reveal="up" data-delay="300">
+          <div class="ach-glow ach-event"></div>
+          <div class="ach-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></div>
+          <div class="ach-badge">Technical Event</div>
+          <h3 class="ach-title">Technical Event</h3>
+          <p class="ach-placeholder-text">Details coming soon...</p>
+          <div class="ach-empty-line"></div>
+          <div class="ach-empty-line short"></div>
+        </div>
+
+        <div class="achievement-card placeholder-card" data-reveal="up" data-delay="400">
+          <div class="ach-glow ach-award"></div>
+          <div class="ach-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
+          <div class="ach-badge">Award</div>
+          <h3 class="ach-title">Award &amp; Recognition</h3>
+          <p class="ach-placeholder-text">Details coming soon...</p>
+          <div class="ach-empty-line"></div>
+          <div class="ach-empty-line short"></div>
+        </div>
+
+        <div class="achievement-card placeholder-card add-more" data-reveal="up" data-delay="500">
+          <div class="ach-icon add-icon"><i class="fas fa-plus" aria-hidden="true"></i></div>
+          <h3 class="ach-title">More Coming Soon</h3>
+          <p class="ach-placeholder-text">Achievements will be updated here as they happen!</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CERTIFICATES SECTION ===================== -->
+  <section id="certificates" class="section certificates-section" aria-labelledby="certificates-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">Credentials</span>
+        <h2 class="section-title" id="certificates-heading">My <span class="gradient-text">Certificates</span></h2>
+        <div class="section-underline"></div>
+      </div>
+
+      <div class="certs-grid">
+
+        <div class="cert-card" data-reveal="up" data-delay="0">
+          <div class="cert-thumb">
+            <div class="cert-placeholder">
+              <i class="fas fa-certificate" aria-hidden="true"></i>
+              <span>Diploma</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <h3 class="cert-title">Honours Diploma in Computer Application (HDCA)</h3>
+            <p class="cert-issuer"><i class="fas fa-building" aria-hidden="true"></i> CSC Computer Education</p>
+            <p class="cert-date"><i class="fas fa-calendar" aria-hidden="true"></i> Aug 2023</p>
+            <div class="cert-actions">
+              <a href="assets/certificates/HDCA_Diploma.pdf" target="_blank" class="cert-btn view" aria-label="View Diploma"><i class="fas fa-eye" aria-hidden="true"></i> View</a>
+              <a href="assets/certificates/HDCA_Diploma.pdf" download="Afshan_HDCA_Diploma.pdf" class="cert-btn download" aria-label="Download Diploma"><i class="fas fa-download" aria-hidden="true"></i> Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-reveal="up" data-delay="100">
+          <div class="cert-thumb">
+            <div class="cert-placeholder">
+              <i class="fas fa-medal" aria-hidden="true"></i>
+              <span>Certificate</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <h3 class="cert-title">Certificate Placeholder 2</h3>
+            <p class="cert-issuer"><i class="fas fa-building" aria-hidden="true"></i> Issuing Organization</p>
+            <p class="cert-date"><i class="fas fa-calendar" aria-hidden="true"></i> 2024</p>
+            <div class="cert-actions">
+              <a href="#" class="cert-btn view" aria-label="View Certificate 2"><i class="fas fa-eye" aria-hidden="true"></i> View</a>
+              <a href="#" class="cert-btn download" download aria-label="Download Certificate 2"><i class="fas fa-download" aria-hidden="true"></i> Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-reveal="up" data-delay="200">
+          <div class="cert-thumb">
+            <div class="cert-placeholder">
+              <i class="fas fa-award" aria-hidden="true"></i>
+              <span>Certificate</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <h3 class="cert-title">Certificate Placeholder 3</h3>
+            <p class="cert-issuer"><i class="fas fa-building" aria-hidden="true"></i> Issuing Organization</p>
+            <p class="cert-date"><i class="fas fa-calendar" aria-hidden="true"></i> 2025</p>
+            <div class="cert-actions">
+              <a href="#" class="cert-btn view" aria-label="View Certificate 3"><i class="fas fa-eye" aria-hidden="true"></i> View</a>
+              <a href="#" class="cert-btn download" download aria-label="Download Certificate 3"><i class="fas fa-download" aria-hidden="true"></i> Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card" data-reveal="up" data-delay="300">
+          <div class="cert-thumb">
+            <div class="cert-placeholder">
+              <i class="fas fa-ribbon" aria-hidden="true"></i>
+              <span>Certificate</span>
+            </div>
+          </div>
+          <div class="cert-body">
+            <h3 class="cert-title">Certificate Placeholder 4</h3>
+            <p class="cert-issuer"><i class="fas fa-building" aria-hidden="true"></i> Issuing Organization</p>
+            <p class="cert-date"><i class="fas fa-calendar" aria-hidden="true"></i> 2025</p>
+            <div class="cert-actions">
+              <a href="#" class="cert-btn view" aria-label="View Certificate 4"><i class="fas fa-eye" aria-hidden="true"></i> View</a>
+              <a href="#" class="cert-btn download" download aria-label="Download Certificate 4"><i class="fas fa-download" aria-hidden="true"></i> Download</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EDUCATION SECTION ===================== -->
+  <section id="education" class="section education-section" aria-labelledby="education-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">Academic Background</span>
+        <h2 class="section-title" id="education-heading">My <span class="gradient-text">Education</span></h2>
+        <div class="section-underline"></div>
+      </div>
+
+      <div class="edu-grid">
+
+        <div class="edu-card current" data-reveal="left">
+          <div class="edu-badge current-badge"><i class="fas fa-circle-dot" aria-hidden="true"></i> Current</div>
+          <div class="edu-icon-wrap"><i class="fas fa-university" aria-hidden="true"></i></div>
+          <div class="edu-year">2025 — 2029</div>
+          <h3 class="edu-degree">Bachelor of Engineering</h3>
+          <h4 class="edu-field">Computer Science &amp; Engineering</h4>
+          <p class="edu-spec"><i class="fas fa-brain" aria-hidden="true"></i> Specialization: <strong>Artificial Intelligence &amp; Machine Learning</strong></p>
+          <p class="edu-institution"><i class="fas fa-building-columns" aria-hidden="true"></i> Er. Perumal Manimekalai College of Engineering</p>
+          <p class="edu-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Tamil Nadu, India</p>
+          <div class="edu-status"><span class="status-pill current">Ongoing</span></div>
+        </div>
+
+        <div class="edu-card" data-reveal="right">
+          <div class="edu-icon-wrap"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+          <div class="edu-year">Jul 2022 — Jul 2023</div>
+          <h3 class="edu-degree">Diploma</h3>
+          <h4 class="edu-field">Honours Diploma in Computer Application (HDCA)</h4>
+          <p class="edu-spec"><i class="fas fa-calculator" aria-hidden="true"></i> Specialization: <strong>Tally Prime, HTML5 &amp; CSS3, MySQL, VBA</strong></p>
+          <p class="edu-institution"><i class="fas fa-building-columns" aria-hidden="true"></i> CSC Computer Education</p>
+          <div class="edu-status">
+            <span class="status-pill completed">Completed - Grade A</span>
+            <a href="assets/certificates/HDCA_Diploma.pdf" target="_blank" style="margin-left:10px;font-size:12px;color:var(--electric);text-decoration:underline;">View Certificate</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESUME SECTION ===================== -->
+  <section id="resume" class="section resume-section" aria-labelledby="resume-heading">
+    <div class="section-container">
+      <div class="resume-wrap" data-reveal="up">
+        <div class="resume-glow"></div>
+        <div class="resume-icon"><i class="fas fa-file-pdf" aria-hidden="true"></i></div>
+        <h2 class="resume-title" id="resume-heading">Download My <span class="gradient-text">Resume</span></h2>
+        <p class="resume-subtitle">Get a complete overview of my skills, experience, projects and achievements in one document.</p>
+        <a href="assets/resume/resume.pdf" download="Afshan_Resume.pdf" class="btn-resume-big magnetic-btn" id="btn-download-resume-main">
+          <i class="fas fa-download" aria-hidden="true"></i>
+          <span>Download Resume</span>
+          <div class="btn-shimmer"></div>
+        </a>
+        <p class="resume-note"><i class="fas fa-file-alt" aria-hidden="true"></i> PDF Format &bull; Updated 2026</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT SECTION ===================== -->
+  <section id="contact" class="section contact-section" aria-labelledby="contact-heading">
+    <div class="section-container">
+      <div class="section-header" data-reveal="up">
+        <span class="section-tag">Get In Touch</span>
+        <h2 class="section-title" id="contact-heading">Contact <span class="gradient-text">Me</span></h2>
+        <div class="section-underline"></div>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Left: Info -->
+        <div class="contact-info" data-reveal="left">
+          <h3 class="ci-title">Let's Build Something Amazing</h3>
+          <p class="ci-text">I'm always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out!</p>
+
+          <div class="ci-items">
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+              <div>
+                <span class="ci-label">Email</span>
+                <a href="mailto:afshann984@gmail.com" class="ci-value">afshann984@gmail.com</a>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></div>
+              <div>
+                <span class="ci-label">Location</span>
+                <span class="ci-value">Hosur, Tamil Nadu, India</span>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fab fa-github" aria-hidden="true"></i></div>
+              <div>
+                <span class="ci-label">GitHub</span>
+                <a href="https://github.com/afshann984" target="_blank" rel="noopener noreferrer" class="ci-value">github.com/afshann984</a>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fab fa-linkedin" aria-hidden="true"></i></div>
+              <div>
+                <span class="ci-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/afshan-n-286737321?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="ci-value">linkedin.com/in/afshan-n-286737321</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Featured Technologies -->
+          <div class="featured-tech">
+            <h4 class="ft-title"><i class="fas fa-star" aria-hidden="true"></i> Featured Technologies</h4>
+            <div class="ft-chips">
+              <span class="ft-chip">Python</span>
+              <span class="ft-chip">Artificial Intelligence</span>
+              <span class="ft-chip">Machine Learning</span>
+              <span class="ft-chip">IoT</span>
+              <span class="ft-chip">Web Dev</span>
+              <span class="ft-chip">HTML/CSS/JS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="contact-form-wrap" data-reveal="right">
+          <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contactName" class="form-label">Full Name</label>
+                <input type="text" id="contactName" name="name" class="form-control-custom" placeholder="Your full name" required autocomplete="name" />
+                <span class="form-error" id="nameError" aria-live="polite"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email Address</label>
+                <input type="email" id="contactEmail" name="email" class="form-control-custom" placeholder="your@email.com" required autocomplete="email" />
+                <span class="form-error" id="emailError" aria-live="polite"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contactSubject" class="form-label">Subject</label>
+              <input type="text" id="contactSubject" name="subject" class="form-control-custom" placeholder="What's this about?" required />
+              <span class="form-error" id="subjectError" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage" class="form-label">Message</label>
+              <textarea id="contactMessage" name="message" class="form-control-custom textarea" placeholder="Tell me about your project, opportunity, or just say hi!" rows="5" required></textarea>
+              <span class="form-error" id="messageError" aria-live="polite"></span>
+            </div>
+            <button type="submit" class="btn-send magnetic-btn" id="btnSend">
+              <span class="btn-text"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message</span>
+              <span class="btn-loading" hidden><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...</span>
+            </button>
+            <div class="form-success" id="formSuccess" hidden>
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+              <span>Message sent successfully! I'll get back to you soon.</span>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-container">
+      <div class="footer-grid">
+
+        <!-- Logo + tagline -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-signature">Afshan</span>
+          </div>
+          <p class="footer-tagline">Where Code Meets Creativity and Intelligence.</p>
+          <div class="footer-socials" aria-label="Social media links">
+            <a href="https://github.com/afshann984" target="_blank" rel="noopener noreferrer" class="fsocial" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/afshan-n-286737321/" target="_blank" rel="noopener noreferrer" class="fsocial" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+            <a href="mailto:afshann984@gmail.com" class="fsocial" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Nav -->
+        <div class="footer-nav">
+          <h4 class="footer-nav-title">Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Info -->
+        <div class="footer-info">
+          <h4 class="footer-nav-title">Contact</h4>
+          <p><i class="fas fa-envelope" aria-hidden="true"></i> afshann984@gmail.com</p>
+          <p><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Hosur, Tamil Nadu, India</p>
+          <p><i class="fas fa-globe" aria-hidden="true"></i> afshanverse.dev</p>
+          <a href="assets/resume/resume.pdf" download class="footer-resume-btn">
+            <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; 2026 AFSHANVERSE — Afshan. All rights reserved.</p>
+        <p class="footer-made">Made with <span class="heart">❤️</span> by <strong>Afshan</strong></p>
+      </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

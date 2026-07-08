@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://afshanverse.dev/sitemap.xml
+
+Disallow: /assets/resume/
+Disallow: /.vscode/
